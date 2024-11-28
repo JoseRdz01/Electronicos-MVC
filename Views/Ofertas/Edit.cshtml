@@ -1,0 +1,63 @@
+﻿@model Electronicos_MVC.Models.Ofertas
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container mt-4">
+        <h4 class="text-center mb-4">Crear/Editar Oferta</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID_Oferta)
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Producto_ID, "Producto", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.DropDownList("Producto_ID", null, "-- Selecciona un Producto --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Producto_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Porcentaje_Desc, "Porcentaje de Descuento", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Porcentaje_Desc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Porcentaje_Desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Fecha_inicio, "Fecha de Inicio", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fecha_inicio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fecha_inicio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Fecha_fin, "Fecha de Fin", htmlAttributes: new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fecha_fin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fecha_fin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Oferta" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="text-center mt-3">
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-secondary" })
+</div>
+

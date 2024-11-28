@@ -1,0 +1,28 @@
+﻿@model Electronicos_MVC.Models.Marcas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="container">
+    <div class="well">
+        <h4 class="text-primary">Marca Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre_Marca)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nombre_Marca)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="mt-4">
+        <!-- Enlace para editar la marca -->
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Marca }, new { @class = "btn btn-warning btn-sm" }) |
+        <!-- Enlace para regresar a la lista de marcas -->
+        @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-secondary btn-sm" })
+    </div>
+</div>

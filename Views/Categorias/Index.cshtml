@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Electronicos_MVC.Models.Categorias>
+
+@{
+    ViewBag.Title = "Categorías";
+}
+
+<h2 class="mb-4">Categorías</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva Categoría", "Create", null, new { @class = "btn btn-primary mb-3" })
+</p>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre_Categoria)</th>
+            <th>@Html.DisplayNameFor(model => model.Existencia_Total)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre_Categoria)</td>
+                <td>@Html.DisplayFor(modelItem => item.Existencia_Total)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ID_Categoria })" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="@Url.Action("Details", new { id = item.ID_Categoria })" class="btn btn-sm btn-info">Detalles</a>
+                    <a href="@Url.Action("Delete", new { id = item.ID_Categoria })" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model Electronicos_MVC.Models.Ofertas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="container mt-4">
+    <h4 class="text-center mb-4">Detalles de la Oferta</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Porcentaje_Desc)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Porcentaje_Desc)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Fecha_inicio)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Fecha_inicio)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Fecha_fin)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Fecha_fin)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Productos.Nombre_Producto)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Productos.Nombre_Producto)
+        </dd>
+    </dl>
+
+    <div class="text-center mt-4">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Oferta }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

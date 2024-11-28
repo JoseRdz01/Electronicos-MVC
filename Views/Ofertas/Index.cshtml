@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Electronicos_MVC.Models.Ofertas>
+
+@{
+    ViewBag.Title = "Ofertas";
+}
+
+<h2 class="mb-4">Ofertas</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva Oferta", "Create", null, new { @class = "btn btn-primary mb-3" })
+</p>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Porcentaje_Desc)</th>
+            <th>@Html.DisplayNameFor(model => model.Fecha_inicio)</th>
+            <th>@Html.DisplayNameFor(model => model.Fecha_fin)</th>
+            <th>@Html.DisplayNameFor(model => model.Productos.Nombre_Producto)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Porcentaje_Desc)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fecha_inicio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fecha_fin)</td>
+                <td>@Html.DisplayFor(modelItem => item.Productos.Nombre_Producto)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ID_Oferta })" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="@Url.Action("Details", new { id = item.ID_Oferta })" class="btn btn-sm btn-info">Detalles</a>
+                    <a href="@Url.Action("Delete", new { id = item.ID_Oferta })" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

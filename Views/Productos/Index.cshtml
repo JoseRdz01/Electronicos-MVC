@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Electronicos_MVC.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Producto", "Create", null, new { @class = "btn btn-primary mb-3" })
+</p>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nombre_Producto)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Existencia)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Precio)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Procesador)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.RAM)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.DiscoDuro)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Categorias.Nombre_Categoria)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Marcas.Nombre_Marca)</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre_Producto)</td>
+                <td>@Html.DisplayFor(modelItem => item.Existencia)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Procesador)</td>
+                <td>@Html.DisplayFor(modelItem => item.RAM)</td>
+                <td>@Html.DisplayFor(modelItem => item.DiscoDuro)</td>
+                <td>@Html.DisplayFor(modelItem => item.Categorias.Nombre_Categoria)</td>
+                <td>@Html.DisplayFor(modelItem => item.Marcas.Nombre_Marca)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ID_Producto })" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="@Url.Action("Details", new { id = item.ID_Producto })" class="btn btn-sm btn-info">Detalles</a>
+                    <a href="@Url.Action("Delete", new { id = item.ID_Producto })" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!--<h1>@ViewBag.Titulo</h1>
+<h3>@ViewBag.Subtitulo</h3>
+
+<div class="row">
+    <div class="col-md-2" style="text-align: right;">
+        <a href="~/Productos/Create" class="btn btn-primary">Nuevo Producto</a>
+    </div>
+</div>
+
+
+
+<div class="container mt-5">
+    <div class="row">-->
+<!-- Card 1 -->
+<!--@foreach (var producto in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h2 class="card-title">Producto # @producto.ID_Producto</h2>
+                        <h5 class="card-title">@producto.Nombre_Producto</h5>
+                        <p class="card-text">@producto.Descripcion  </p>
+                        <a href="~/Productos/Edit/@producto.ID_Producto" class="btn btn-warning">Editar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>-->

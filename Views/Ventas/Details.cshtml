@@ -1,0 +1,46 @@
+﻿@model Electronicos_MVC.Models.Ventas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="container bg-light p-4 rounded shadow">
+    <h3 class="text-center mb-4 text-primary">Detalle de Venta</h3>
+    <hr />
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row" class="text-end">Ganancia:</th>
+                <td>@Html.DisplayFor(model => model.Ganancia)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-end">Fecha de Venta:</th>
+                <td>@Html.DisplayFor(model => model.Fecha_Venta)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-end">Cantidad:</th>
+                <td>@Html.DisplayFor(model => model.Cantidad)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-end">Producto:</th>
+                <td>@Html.DisplayFor(model => model.Productos.Nombre_Producto)</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-end">Sucursal:</th>
+                <td>@Html.DisplayFor(model => model.Sucursales.Nombre_Sucursal)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between">
+        <a href="@Url.Action("Edit", new { id = Model.ID_Venta })" class="btn btn-warning">
+            <i class="bi bi-pencil-square"></i> Editar
+        </a>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Volver a la lista
+        </a>
+    </div>
+</div>

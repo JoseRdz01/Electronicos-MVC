@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Electronicos_MVC.Models.Sucursales>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Sucursal", "Create", null, new { @class = "btn btn-primary mb-3" })
+</p>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre_Sucursal)</th>
+            <th>@Html.DisplayNameFor(model => model.Calle)</th>
+            <th>@Html.DisplayNameFor(model => model.Numero)</th>
+            <th>@Html.DisplayNameFor(model => model.Colonia)</th>
+            <th>@Html.DisplayNameFor(model => model.CP)</th>
+            <th>@Html.DisplayNameFor(model => model.Tel)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre_Sucursal)</td>
+                <td>@Html.DisplayFor(modelItem => item.Calle)</td>
+                <td>@Html.DisplayFor(modelItem => item.Numero)</td>
+                <td>@Html.DisplayFor(modelItem => item.Colonia)</td>
+                <td>@Html.DisplayFor(modelItem => item.CP)</td>
+                <td>@Html.DisplayFor(modelItem => item.Tel)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ID_Sucursal })" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="@Url.Action("Details", new { id = item.ID_Sucursal })" class="btn btn-sm btn-info">Detalles</a>
+                    <a href="@Url.Action("Delete", new { id = item.ID_Sucursal })" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--<h1>@ViewBag.Titulo</h1>
+<h3>@ViewBag.Subtitulo</h3>
+
+<div class="row">
+    <div class="col-md-2" style="text-align: right;">
+        <a href="~/Sucursales/Create" class="btn btn-primary">Nuevo Producto</a>
+    </div>
+</div>
+
+
+
+<div class="container mt-5">
+    <div class="row">-->
+<!-- Card 1 -->
+<!--@foreach (var sucursal in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h2 class="card-title">@sucursal.Nombre_Sucursal</h2>
+                        <h5 class="card-title">Sucursal # @sucursal.ID_Sucursal</h5>
+                        <p class="card-text">@sucursal.Calle  </p>
+                        <a href="~/Productos/Edit/@sucursal.ID_Sucursal" class="btn btn-warning">Editar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>-->
